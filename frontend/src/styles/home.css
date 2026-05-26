@@ -1,0 +1,394 @@
+
+
+
+
+
+
+/* ==========================================================================
+   1. Cinematic Fullscreen Viewport & Dynamic Slides
+   ========================================================================== */
+.home-hero-viewport {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Spreads layout text top-to-bottom */
+    padding: 140px 80px 60px 80px; /* Roomy padding for top nav bars and side gutters */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: background-image 1.5s cubic-bezier(0.4, 0, 0.2, 1); /* Ultra smooth slide fade */
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Connect these cleanly to your abstract gradients or photography backdrops */
+.home-hero-viewport.slide1 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), 
+                      url('https://static.vecteezy.com/system/resources/previews/031/696/655/non_2x/sprawling-agricultural-farm-featuring-fields-of-crops-ai-generated-photo.jpg');
+}
+
+.home-hero-viewport.slide2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), 
+                      url('https://png.pngtree.com/background/20250102/original/pngtree-concept-use-of-the-smart-farmer-system-came-to-help-analysis-picture-image_15533154.jpg');
+}
+
+.home-hero-viewport.slide3 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), 
+                      url('https://wallpaperbat.com/img/319677-agriculture-desktop-wallpaper.jpg');
+}
+
+/* ==========================================================================
+   2. Asymmetrical Giant Headline Typography
+   ========================================================================== */
+.hero-main-content {
+    max-width: 1100px;
+    width: 100%;
+    align-self: flex-start;
+    margin-top: 40px;
+}
+
+.hero-headline {
+    font-size: clamp(3rem, 6vw, 5.8rem); /* Fluid sizing adjusts elegantly based on display size */
+    color: #ffffff;
+    font-weight: 500; /* Minimal clean grotesque font weight feel */
+    line-height: 1.05;
+    letter-spacing: -2px;
+    text-align: center;
+    
+    margin: 0;
+    animation: slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Optional soft color highlight matching your brand */
+.hero-headline .text-glow {
+    color: #9adeaa; 
+    opacity: 0.95;
+}
+
+/* ==========================================================================
+   3. Bottom Row Grid (Subtext & Dual Capsule Button)
+   ========================================================================== */
+.hero-bottom-grid {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Align elements cleanly at the bottom line */
+    gap: 40px;
+}
+
+/* Minimal description subtext at bottom-left */
+.hero-subtext {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+    font-weight: 400;
+    margin: 0;
+    max-width: 650px;
+    letter-spacing: -0.1px;
+}
+
+/* ==========================================================================
+   4. Dual Capsule Compound Action Button Structure
+   ========================================================================== */
+.hero-action-capsule-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+}
+
+/* Left main pill tracking text button */
+.action-pill-main {
+    background-color: #1e2722; /* Sleek dark slate charcoal */
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 18px 32px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.action-pill-main:hover {
+    background-color: #111714;
+}
+
+/* Right bright lime/green arrow capsule accent button */
+.action-pill-arrow {
+    background-color: #ccff33; /* High-contrast neon green from reference look */
+    color: #121a14;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 14px 20px;
+    border-radius: 50%; /* Forms perfect auxiliary round circle */
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.25s ease, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.action-pill-arrow:hover {
+    background-color: #b3ff00;
+    transform: scale(1.08) rotate(15deg); /* Playful responsive rotation element */
+}
+
+/* Active micro interactions */
+.action-pill-main:active, .action-pill-arrow:active {
+    transform: scale(0.97);
+}
+
+/* Entry Animation rules */
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   5. Mobile & Tablet Optimization 
+   ========================================================================== */
+@media (max-width: 900px) {
+    .home-hero-viewport {
+        padding: 120px 30px 40px 30px;
+    }
+    
+    .hero-bottom-grid {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+    
+    .hero-action-capsule-wrapper {
+        width: 100%;
+    }
+    
+    .action-pill-main {
+        flex: 1;
+        text-align: center;
+    }
+}
+
+
+/* ==========================================================================
+   1. Structural Mask Layout
+   ========================================================================== */
+.home-hero-viewport {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    padding: 140px 80px 60px 80px; 
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.slider-track {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.individual-slide {
+    min-width: 100vw;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hero-main-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    width: 100%;
+    align-self: flex-start;
+    margin-top: 40px;
+}
+
+.hero-headline {
+    font-size: clamp(3rem, 6vw, 5.8rem); 
+    color: #ffffff;
+    font-weight: 500; 
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin: 0;
+}
+
+/* ==========================================================================
+   2. Typing & Glitch Integration Effects
+   ========================================================================== */
+.text-effects-wrapper {
+    position: relative;
+    color: #e2f0d9;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+    justify-content: center;
+    
+    /* Typing Step Animation Loop */
+    border-right: 3px solid #ccff33; /* The moving typing cursor line */
+    animation: 
+        typing 6s steps(20, end) infinite alternate,
+        blinkCursor 0.75s step-end infinite,
+        globalGlitch 5s ease-in-out infinite;
+}
+
+
+
+/* Red-Green split shift channels */
+.text-effects-wrapper::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff00c8;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitchTop 5s linear infinite alternate;
+}
+
+.text-effects-wrapper::after {
+    left: -2px;
+    text-shadow: -2px 0 #00ffca, 0 2px #3dff00;
+    clip: rect(85px, 450px, 140px, 0);
+    animation: glitchBottom 5s linear infinite alternate;
+}
+
+/* ==========================================================================
+   3. Keyframe Timelines
+   ========================================================================== */
+
+/* 1. Typing effect slider */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* 2. Text cursor pulse indicator */
+@keyframes blinkCursor {
+    from, to { border-color: transparent }
+    50% { border-color: #ccff33; }
+}
+
+/* 3. Random horizontal distortion jumps */
+@keyframes globalGlitch {
+    0%, 90%, 100% { text-shadow: none; transform: skew(0deg); }
+    91% { text-shadow: 2px -1px #ff0055, -2px 2px #00ffaa; transform: skew(3deg); }
+    93% { text-shadow: -3px 2px #ff0055, 3px -1px #00ffaa; transform: skew(-2deg); }
+    95% { text-shadow: 1px -2px #ff0055, -1px 3px #ccff33; transform: skew(1deg); }
+}
+
+@keyframes glitchTop {
+    0%, 100% { clip: rect(0, 0, 0, 0); }
+    92% { clip: rect(20px, 9999px, 40px, 0); }
+    94% { clip: rect(60px, 9999px, 80px, 0); }
+}
+
+@keyframes glitchBottom {
+    0%, 100% { clip: rect(0, 0, 0, 0); }
+    91% { clip: rect(80px, 9999px, 110px, 0); }
+    95% { clip: rect(10px, 9999px, 50px, 0); }
+}
+
+/* ==========================================================================
+   4. Bottom Row & Layout Action Elements
+   ========================================================================== */
+.hero-bottom-grid {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; 
+    gap: 40px;
+}
+
+.hero-subtext {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+    font-weight: 400;
+    margin: 0;
+    max-width: 650px;
+    letter-spacing: -0.1px;
+}
+
+.hero-action-capsule-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.action-pill-main {
+    background-color: #1e2722; 
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 18px 32px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+.action-pill-main:hover {
+    background-color: #111714;
+}
+
+.action-pill-arrow {
+    background-color: #ccff33; 
+    color: #121a14;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 14px 20px;
+    border-radius: 50%; 
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.25s ease, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.action-pill-arrow:hover {
+    background-color: #b3ff00;
+    transform: scale(1.08) rotate(15deg); 
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+    .home-hero-viewport {
+        padding: 120px 30px 40px 30px;
+    }
+    .hero-bottom-grid {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+    .hero-action-capsule-wrapper {
+        width: 100%;
+    }
+    .action-pill-main {
+        flex: 1;
+        text-align: center;
+    }
+}

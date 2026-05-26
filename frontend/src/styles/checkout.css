@@ -1,0 +1,226 @@
+/* ==========================================================================
+   1. Page Layout & Background
+   ========================================================================== */
+.checkout-page {
+    min-height: 100vh;
+    /* Use your wheat field background image here */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.checkout-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* Form takes slightly more space */
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+    background: rgba(255, 255, 255, 0.92); /* Clean glassmorphism backdrop */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive wrap for smaller screens */
+@media (max-width: 768px) {
+    .checkout-container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+}
+
+/* ==========================================================================
+   2. Left Section: Form Styling
+   ========================================================================== */
+.checkout-form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.checkout-title {
+    color: #1b4332; /* Deep agricultural green */
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.checkout-subtitle {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+/* Inputs styling */
+.checkout-form-section input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #d8e2dc;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #333;
+    background-color: #fff;
+    transition: all 0.2s ease-in-out;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.checkout-form-section input:focus {
+    border-color: #2d6a4f; /* Focus green accent */
+    box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.15);
+}
+
+/* Dynamic row structure for details like Expiry/CVV */
+.payment-row {
+    display: flex;
+    gap: 16px;
+}
+
+.payment-row input {
+    flex: 1;
+}
+
+/* Buttons Design */
+.place-order-btn {
+    background-color: #2d6a4f;
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 10px;
+    box-shadow: 0 4px 12px rgba(45, 106, 79, 0.2);
+}
+
+.place-order-btn:hover {
+    background-color: #1b4332;
+}
+
+.place-order-btn:active {
+    transform: scale(0.99);
+}
+
+.back-products-btn {
+    background: transparent;
+    color: #555;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.back-products-btn:hover {
+    background-color: #f4f4f4;
+    color: #1b4332;
+    border-color: #1b4332;
+}
+
+/* ==========================================================================
+   3. Right Section: Order Summary
+   ========================================================================== */
+.checkout-summary {
+    background-color: #f7f9f7; /* Very light subtle green tint tint */
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border: 1px solid #e9ecef;
+    align-self: start; /* Prevents stretching stretching vertically */
+}
+
+.checkout-summary h2 {
+    color: #1b4332;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    border-bottom: 2px solid #2d6a4f;
+    padding-bottom: 8px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    color: #555;
+}
+
+.checkout-summary hr {
+    border: 0;
+    border-top: 1px solid #dee2e6;
+    margin: 8px 0;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1b4332;
+}
+
+/* ==========================================================================
+   4. Overlays: Success Modal Pop-up
+   ========================================================================== */
+.success-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.success-box {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    max-width: 400px;
+    width: 90%;
+    animation: popupScale 0.3s ease-out forwards;
+}
+
+.success-box h1 {
+    color: #2d6a4f;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+}
+
+.success-box p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+@keyframes popupScale {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

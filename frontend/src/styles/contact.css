@@ -1,0 +1,142 @@
+/* ==========================================================================
+   1. Page & Layout Structure
+   ========================================================================== */
+.contact-page-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #062c15; /* Deep forest green backdrop */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 60px;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.contact-container {
+    width: 100%;
+    max-width: 850px;
+    margin: 40px auto 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Heading with white and lime split */
+.contact-title {
+    font-size: 2.5rem;
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.contact-title span {
+    color: #aacc00; /* Vibrant lime green text from image */
+}
+
+/* ==========================================================================
+   2. Glow Card & Input Row Architecture 
+   ========================================================================== */
+.contact-form-card {
+    width: 100%;
+    background-color: #031e0e; /* Dark inner card */
+    border: 1px solid rgba(170, 204, 0, 0.2); /* Soft lime border outline */
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 0 30px rgba(170, 204, 0, 0.1); /* Ambient outer glow */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+.contact-form-row {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Make inputs side-by-side flex responsive */
+.contact-form-row input,
+.contact-form-row textarea {
+    flex: 1;
+    width: 100%;
+    background-color: #042511; /* Matrix matching interior green */
+    border: 1px solid #70e000; /* Lime neon borders */
+    border-radius: 14px;
+    padding: 16px 20px;
+    font-size: 1rem;
+    color: #ffffff;
+    outline: none;
+    transition: all 0.25s ease-in-out;
+    box-sizing: border-box;
+}
+
+/* Input text placeholders */
+.contact-form-row input::placeholder,
+.contact-form-row textarea::placeholder {
+    color: #a3b1a7;
+    opacity: 0.8;
+}
+
+/* Interactive Focus Glow State */
+.contact-form-row input:focus,
+.contact-form-row textarea:focus {
+    background-color: #063117;
+    border-color: #9ef01a;
+    box-shadow: 0 0 12px rgba(158, 240, 26, 0.4);
+}
+
+/* Textarea full length management */
+.contact-form-row textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* ==========================================================================
+   3. Custom Gold Button Styling
+   ========================================================================== */
+.contact-submit-btn {
+    align-self: center;
+    background: linear-gradient(135deg, #b5892c, #966f1d); /* Smooth golden metallic look */
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: 1px solid #d4af37;
+    border-radius: 8px;
+    padding: 12px 45px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(181, 137, 44, 0.4);
+    transition: all 0.2s ease;
+    margin-top: 10px;
+}
+
+.contact-submit-btn:hover {
+    background: linear-gradient(135deg, #c99c3b, #a67c25);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    transform: translateY(-1px);
+}
+
+.contact-submit-btn:active {
+    transform: translateY(1px);
+}
+
+/* ==========================================================================
+   4. Mobile Adaptation (Responsive)
+   ========================================================================== */
+@media (max-width: 650px) {
+    .contact-form-card {
+        padding: 20px;
+    }
+    
+    .contact-form-row {
+        flex-direction: column; /* Stacks inputs vertically on mobile displays */
+        gap: 20px;
+    }
+    
+    .contact-submit-btn {
+        width: 100%; /* Full stretch button on small viewports */
+    }
+}

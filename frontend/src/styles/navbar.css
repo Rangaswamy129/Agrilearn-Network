@@ -1,0 +1,383 @@
+/* ==========================================================================
+   1. Navbar Container & Layout
+   ========================================================================== */
+.navbar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: transparent;
+    z-index: 1000;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* Brand Logo Styling */
+.navbar-brand .brand-logo {
+    color: #389a64;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ==========================================================================
+   2. Central Glass Capsule (The Outer Pill Container)
+   ========================================================================== */
+.navbar-floating-pill {
+    display: flex;
+    align-items: center;
+    background: rgba(241, 19, 141, 0.062); /* Smooth light glass backdrop */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 6px 6px 6px 28px; /* Roomy padding on the left for text links */
+    border-radius: 50px; /* Forces capsule layout structure */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px rgba(13, 117, 66, 0.08);
+}
+
+/* Menu items container */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 28px; 
+    margin: 0;
+    padding: 0;
+}
+
+/* Regular Text Links Styling */
+.nav-menu li a {
+    text-decoration: none;
+    color: #ef1515; /* Subdued dark green/charcoal */
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: color 0.2s ease;
+    display: inline-block;
+    padding: 4px 0;
+}
+
+.nav-menu li a:hover {
+    color: #1d8f2b; /* Subtle text color shift on hover */
+}
+
+/* Global reset to prevent link clicks from rendering weird boxes or outlines */
+.nav-menu li a:focus,
+.nav-menu li a:active,
+.brand-logo:focus {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* ==========================================================================
+   3. Fixed Action Button (Permanently Locked on the Right Side)
+   ========================================================================== */
+.navbar-action-btn {
+    text-decoration: none !important;
+    background-color: #17b651 !important; /* Constant dark slate background */
+    color: #ffffff !important;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 12px 24px;
+    border-radius: 30px; /* Locked pill button shape inside the card */
+    margin-left: 24px;
+    display: inline-block;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    
+    /* Clean isolation overrides */
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    box-sizing: border-box;
+}
+
+/* Hover effects stay limited strictly to this component */
+.navbar-action-btn:hover {
+    background-color: #3a7a40 !important;
+    color: #0d1710 !important;
+}
+
+.navbar-action-btn:focus,
+.navbar-action-btn:active {
+    background-color: #49b16f !important;
+    color: #28b630 !important;
+    outline: none !important;
+}
+
+/* ==========================================================================
+   4. Responsive Adjustments
+   ========================================================================== */
+@media (max-width: 820px) {
+    .navbar-container {
+        padding: 15px 20px;
+    }
+    
+    .nav-menu {
+        display: none; /* Hide menu text links on mobile layouts */
+    }
+    
+    .navbar-floating-pill {
+        padding: 4px; /* Collapse margins */
+    }
+    
+    .navbar-action-btn {
+        margin-left: 0;
+        padding: 10px 18px;
+        font-size: 0.75rem;
+    }
+}
+
+/* ==========================================================================
+   1. Base Navbar Navigation Constraints
+   ========================================================================== */
+.main-navbar {
+    width: 100%;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.95);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.nav-brand-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.brand-logo-leaf {
+    font-size: 1.6rem;
+}
+
+.brand-name-text {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1b4332; /* Rich agricultural brand identity green */
+}
+
+.nav-links-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links-list li a {
+    text-decoration: none;
+    color: #475569;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links-list li a:hover,
+.nav-links-list li a.active {
+    color: #2ddf94;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   2. Auth Interactive Layout Trigger Zones & Dropdown
+   ========================================================================== */
+.nav-auth-action-zone {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Rounded Profile Graphic Avatar Badge */
+.user-avatar-badge {
+    width: 42px;
+    height: 42px;
+    background-color: #1b4332;
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px solid rgba(27, 67, 50, 0.1);
+    box-shadow: 0 2px 8px rgba(27, 67, 50, 0.15);
+    transition: transform 0.2s ease;
+}
+
+.user-profile-menu-wrapper {
+    position: relative;
+    padding: 10px 0; /* Padding creates a buffer zone so the dropdown stays open when hovering */
+}
+
+.user-profile-menu-wrapper:hover .user-avatar-badge {
+    transform: scale(1.05);
+}
+
+/* Floating Portal Dropdown Card Structure */
+.user-dropdown-portal-card {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 240px;
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+    padding: 16px;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    animation: dropdownFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dropdown-user-info-header {
+    text-align: left;
+    padding-bottom: 4px;
+}
+
+.dropdown-user-info-header .welcome-label {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 4px 0;
+}
+
+.dropdown-user-info-header .user-display-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0f172a;
+    margin: 0 0 2px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdown-user-info-header .user-display-email {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background-color: #f1f5f9;
+    margin: 12px 0;
+    width: 100%;
+}
+
+/* Log Out Inline Interactive Action Item */
+.dropdown-logout-action-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ef4444; /* High clarity red action label */
+    cursor: pointer;
+    padding: 8px 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.15s ease;
+}
+
+.dropdown-logout-action-btn:hover {
+    background-color: #fef2f2;
+}
+
+/* Original Guest Login Button Link Structure */
+.nav-login-redirect-btn {
+    background-color: #1b4332;
+    color: #ffffff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.nav-login-redirect-btn:hover {
+    background-color: #143225;
+}
+
+.nav-login-redirect-btn:active {
+    transform: scale(0.98);
+}
+
+/* Subtle animation slide-in timeline */
+@keyframes dropdownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Crucial properties to keep the user avatar dropdown accessible */
+.user-profile-menu-wrapper {
+    position: relative;
+    padding: 5px 0;
+    cursor: pointer;
+    z-index: 1010;
+}
+
+.user-dropdown-portal-card {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 230px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    padding: 15px;
+    margin-top: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    z-index: 1020; /* Ensures it floats above page text descriptions */
+}
+.img{
+    border-image-outset: 0cap;
+    width:100px;
+    height: 80px;
+    border-radius: 50%;
+    border-color: white;
+}
+.nav-icon{
+margin-right:8px;
+font-size:15px;
+vertical-align:middle;
+}
